@@ -28,7 +28,6 @@ const update = () => {
       entities.splice(i, 1);
     }
   }
-  console.log(entities.length);
   addBalls();
 };
 const draw = () => {

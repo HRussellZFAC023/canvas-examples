@@ -5,6 +5,11 @@ const BG_COLOUR = '#2f3640';
 const canvas = document.getElementById('canvas');
 const ctx = canvas.getContext('2d');
 
+let mousepos = new Vector(w / 2 | 0, h / 2 | 0);
+const handlemouse = () => {
+    mousepos = new Vector(event.clientX, event.clientY);
+}
+canvas.addEventListener('click', handlemouse, true);
 // make the canvas fullscreen
 window.addEventListener('resize', () => {
   w = window.innerWidth;
@@ -42,11 +47,11 @@ const render = (ts) => {
 
 const addBalls = () => {
   const colours = ['#ee5253', '#fa983a', '#78e08f', '#f6b93b', '#e84393'];
-  for (let i = 0; i < 10; i++) {
-    let a = Math.random() * 10 | 0 + 2;
-    let b = Math.random() * 10 | 0 + 2;
+  for (let i = 0; i < 1; i++) {
+    let a = Math.random() * 10 - 5;
+    let b = Math.random() * 10 - 5;
 
-    let pos = new Vector(w / 2 | 0, h / 2 | 0);
+    let pos = mousepos.copy();
     let vel = new Vector(a % 2 == 0 ? -a : a, b % 2 == 0 ? -b : b);
 
     let rad = Math.random() * 100 | 0;

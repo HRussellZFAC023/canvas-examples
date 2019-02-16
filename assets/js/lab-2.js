@@ -6,9 +6,10 @@ const canvas = document.getElementById('canvas');
 const ctx = canvas.getContext('2d');
 
 let mousepos = new Vector(w / 2 | 0, h / 2 | 0);
-const handlemouse = () => {
-    mousepos = new Vector(event.clientX, event.clientY);
-}
+const handlemouse = (event) => {
+    mousepos.x = event.clientX;
+    mousepos.y = event.clientY;
+};
 canvas.addEventListener('click', handlemouse, true);
 // make the canvas fullscreen
 window.addEventListener('resize', () => {

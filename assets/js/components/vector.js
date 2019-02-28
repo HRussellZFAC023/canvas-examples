@@ -36,7 +36,7 @@ class Vector {
   }
 
   dot(other) {
-    return this.x * other.x + this.x * other.x;
+    return this.x * other.x + this.y * other.y;
   }
 
   multiply(k) {
